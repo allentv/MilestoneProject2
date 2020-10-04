@@ -18,9 +18,9 @@ h5{
 }
 
 #start{
-    color: rgb(255, 217, 0);
+    color: rgb(235, 20, 20);
     border-radius: 5px;
-    background:rgba(0,0,0,0.6);    
+    background:rgba(0,0,0,0.6);        
 }
 
 .logo{
@@ -36,6 +36,8 @@ body{
 }
 
 .yoda{
+    border: 2px solid grey;
+    border-radius: 10px;
     background: white;
     height: 125px;
     background-image: url("../images/yoda.png");
@@ -47,6 +49,8 @@ body{
 
 
 .vader{
+    border: 2px solid grey;
+    border-radius: 10px;
     background: white;
     height: 125px;
     background-image: url("../images/vader.png");
@@ -58,6 +62,8 @@ body{
 
 
 .luke{
+    border: 2px solid grey;
+    border-radius: 10px;
     background: white;
     height: 125px;
     background-image: url("../images/luke.png");
@@ -68,6 +74,8 @@ body{
 }
 
 .r2{
+    border: 2px solid grey;
+    border-radius: 10px;
     background: white;
     height: 125px;
     background-image: url("../images/R2.png");
@@ -78,6 +86,8 @@ body{
 }
 
 .solo{
+    border: 2px solid grey;
+    border-radius: 10px;
     background: white;
     height: 125px;
     background-image: url("../images/solo.png");
@@ -88,6 +98,8 @@ body{
 }
 
 .cpo{
+    border: 2px solid grey;
+    border-radius: 10px;
     background: white;
     height: 125px;
     background-image: url("../images/3PO.jpg");
@@ -98,6 +110,8 @@ body{
 }
 
 .boba{
+    border: 2px solid grey;
+    border-radius: 10px;
     background: white;
     height: 125px;
     background-image: url("../images/boba.png");
@@ -108,6 +122,8 @@ body{
 }
 
 .chewy{
+    border: 2px solid grey;
+    border-radius: 10px;
     background: white;
     height: 125px;
     background-image: url("../images/chewy.png");
@@ -118,6 +134,7 @@ body{
 } 
 
 .card{
+    border: 2px solid rgb(226, 5, 5);
     height: 125px;
     background: rgb(105, 102, 102);
     margin: 5px;
@@ -131,30 +148,33 @@ body{
     line-height: 100px; 
 }
 
-.modal{  
+.modal{ 
+    border: 3px solid red; 
     height: 250px;
     border-radius: 10px;
     background-color:rgba(0,0,0,0.8);  
     width: 350px;
     margin: 0 auto;  
     position: absolute;
-    top: 250px;
+    top: 200px;
     text-align: center;   
 }
 
 .choose{
+    font-size: 18px;
     color: white;
 }
 
 .play{
-    color: rgb(255, 217, 0);
+    color: rgb(255, 0, 0);
     border-radius: 5px;
     background:rgba(0,0,0,0.6);    
 }
 
-.modal-content{  
+.modal-content{
+    color: white;  
     display: inline-block;       
-    background: lightgrey;
+    background: transparent;
     letter-spacing: 1px;
 }
 
@@ -167,8 +187,16 @@ input {
         
 }
 
-#finish{    
+#finish{
+    color: red;       
     text-align: center;
+    margin: 5px;       
+}
+
+.fun-facts{
+    margin-left: 50px;
+    color: white;
+    text-align: left;
 }
 
 .score{    
