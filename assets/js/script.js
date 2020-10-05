@@ -1,13 +1,18 @@
-$(document).ready(function(){     
+$(document).ready(function(){    
     
-    
+    // Global variables
+    let totalMatch = 0;
+    let totalTurns = 0;
+    let click = 0;
+    let checkArray = [];
+
     // Reset buttons
     $("#reset2").click(function(){
          location.reload();        
     })
     
     $("#reset").click(function(){
-        $("#myModal").hide();
+        $("#gameEnd").hide();
         location.reload();
     })
     
@@ -16,63 +21,52 @@ $(document).ready(function(){
     $("#sound").click(function(){
         if(sound===true){    
             sound= false;
-            console.log($("#myAudio2").attr("src"))
-            $("#myAudio2").attr("src","");
+            console.log($("#myAudio2").attr("src"));
+            $("#sound i").removeClass("fa-volume-up").addClass("fa-volume-mute");
+            $("#myAudio2").attr("src","assets/sound/silence.mp3");
+            $("#myAudio3").attr("src","assets/sound/silence.mp3");
         }
         else{
             sound= true;
-            console.log($("#myAudio2").attr("src",""))
+            console.log($("#myAudio2").attr("src","assets/sound/silence.mp3"))
+            $("#sound i").removeClass("fa-volume-mute").addClass("fa-volume-up");
             $("#myAudio2").attr("src","assets/sound/force-strong.mp3");
+            $("#myAudio2").attr("src","assets/sound/most-impressive.mp3");
         }
     })
      
-
     
     $("#start").one("click", function(){        
         $(".card").off("click");
         document.getElementById("myAudio1").play();
-        $("#myModal2").show("slow");      
+        $("#levelSelect").show("slow");      
     })        
      
     $("#level").click(function(){
         if($("input[type=radio][name=level]:checked").length===1){
-            $("#myModal2").hide("slow");
+            $("#levelSelect").hide("slow");
             $("#start").html("<h5>"+"Match the card!"+"</h5>");          
             game();
         }      
     })
-        
 
-    function game(){
-        let click = 0;
-        let checkArray = [];
-        let totalMatch = 0;
-        let totalTurns = 0;                       
-        
-        let level = $("input[type=radio][name=level]:checked").val() 
-        console.log(level);
-        
-        function gameArray(){            
-            if(level==="easy"){                
+    function gameArray(level){            
+        if(level==="easy"){                
                 colorArray = ["yoda","yoda","vader","vader","luke","luke","r2","r2"];
                 $(".medium").hide(); 
                 $(".hard").hide();                
-            }
+        }
             else if(level==="medium"){
                 colorArray = ["yoda","yoda","vader","vader","luke","luke","r2","r2","solo","solo","cpo","cpo"];
                 $(".hard").hide();                
-            }
+        }
             else if(level==="hard"){
                 colorArray = ["yoda","yoda","vader","vader","luke","luke","r2","r2","solo","solo","cpo","cpo","boba","boba","chewy","chewy"];                               
-            }
-        }
-        
-        gameArray()        
-        
-             
-        console.log(colorArray)         
+        }    
+            
+    }
 
-        function shuffleArray(array) { 
+    function shuffleArray(array) { 
         for (var i = array.length - 1; i > 0; i--) {        
         // Generate random number 
             var j = Math.floor(Math.random() * (i + 1));                            
@@ -80,8 +74,50 @@ $(document).ready(function(){
             array[i] = array[j]; 
             array[j] = temp; 
             }         
-            return array; 
-        } 
+        return array; 
+    }   
+    
+
+    function matchccheck(array){
+        if (array[0]===array[1]){
+            totalTurns += 1;
+            $("#turns").html("<h1>" + totalTurns + "</h1>");                       
+            totalMatch += 1;            
+            console.log(totalMatch);
+            if(totalMatch===(colorArray.length)/2){
+                $(".modal").css("background", "rgba(0,0,0,0.9)")
+                document.getElementById("myAudio3").play();                
+                $("#gameEnd").show();
+                $("#finish").html("You took " + totalTurns + " turns to complete!");
+                 funFacts()                
+            }
+            else{                                    
+                document.getElementById("myAudio2").play();                   
+                console.log("." + array[0])                
+                $("."+ array[0]).off("click");               
+                click = 0;          
+                checkArray = [];         
+            } 
+        }
+        else if(array[0]!==array[1]){
+            totalTurns += 1;
+            $("#turns").html("<h1>" + totalTurns + "</h1>");                                         
+            checkArray = [];           
+            setTimeout(function(){                
+            $("."+ array[0]).addClass("card"); 
+            $("."+ array[1]).addClass("card"); 
+            click = 0;
+            checkArray = [];                                    
+            }, 2000);                        
+        }
+    }
+
+    function game(){    
+        let level = $("input[type=radio][name=level]:checked").val()
+        console.log(level);       
+        gameArray(level)     
+        console.log(colorArray)         
+       
 
         let newArray = shuffleArray(colorArray);
         console.log(newArray)   
@@ -104,50 +140,20 @@ $(document).ready(function(){
                 matchccheck(checkArray)           
                 }
             }
-        })   
-
-        function matchccheck(array){
-            if (array[0]===array[1]){
-                totalTurns += 1;
-                $("#turns").html("<h1>" + totalTurns + "</h1>");                       
-                totalMatch += 1;
-                $("#matches").html("<h1>" + totalMatch + "</h1>");
-                console.log(totalMatch);
-                if(totalMatch===(colorArray.length)/2){
-                    $(".modal").css("background", "rgba(0,0,0,0.9)")
-                    document.getElementById("myAudio2").play();                
-                    $("#myModal").show();
-                    $("#finish").html("You took " + totalTurns + " turns to complete!");
-                    funFacts()                
-                }
-                else{                                    
-                    document.getElementById("myAudio2").play();                   
-                    console.log("." + array[0])                
-                    $("."+ array[0]).off("click");               
-                    click = 0;          
-                    checkArray = [];         
-                } 
-            }
-            else if(array[0]!==array[1]){
-                totalTurns += 1;
-                $("#turns").html("<h1>" + totalTurns + "</h1>");                                         
-                checkArray = [];           
-                setTimeout(function(){                
-                $("."+ array[0]).addClass("card"); 
-                $("."+ array[1]).addClass("card"); 
-                click = 0;
-                checkArray = [];                                    
-                }, 2000);                        
-            }
-        }
+        })  
     }
     
+    // Starwars API character select 
     function getData(url, cb) {
-        var xhr = new XMLHttpRequest();
+        let xhr = new XMLHttpRequest();
 
         xhr.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 cb(JSON.parse(this.responseText));
+                console.log("page found")
+            }
+            else if (this.readyState == 4 && this.status == 404) {
+                $("#data1").html("zahur meerun");
             }
         };
 
