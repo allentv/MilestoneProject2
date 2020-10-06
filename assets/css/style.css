@@ -27,8 +27,16 @@ h5{
     text-align: center;         
 }
 
-body{    
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;    
     background-image: url("../images/space.jpg");
+}
+
+.game{
+    flex: 1;
 }
 
 .reset{
@@ -141,6 +149,10 @@ body{
     border-radius: 10px;
 }
 
+.card:hover{
+    background: rgb(68, 66, 66);
+}
+
 #turns, #matches{
     font-family: 'Press Start 2P', cursive; 
     font-size: 40px;   
@@ -169,6 +181,15 @@ body{
     color: rgb(255, 0, 0);
     border-radius: 5px;
     background:rgba(0,0,0,0.6);    
+}
+
+.play:hover, #start:hover, #reset2:hover, #sound:hover, #reset:hover{
+    background: rgb(68, 66, 66);
+}
+
+#levelSelect i{
+    font-size: 40px;
+    color: white;
 }
 
 .modal-content{
@@ -204,7 +225,7 @@ input {
     border-radius: 10px;    
     color: rgb(255, 251, 0); 
     height: 100px;
-    background: rgb(83, 80, 80);
+    background: rgb(105,102,102);
     margin: 5px; 
     text-align: center;
     line-height: 100px;    
@@ -224,16 +245,18 @@ input {
     line-height: 60px;
     font-size: 35px;
     height: 60px;
-    background-color: rgb(99, 94, 94);
-    text-align: center; 
-    position: absolute;
-    width: 100%;
-    bottom: 0px;      
+    background-color: rgba(105,102,102,0.5);
+    text-align: center;       
 }
 
-.footer i{
-    color: rgb(0, 255, 98);
+.footer i{     
+    border-radius: 50%;
+    color: rgb(0, 0, 0);
     margin-right: 20px;
+}
+
+.footer i:hover{
+    color: rgb(151, 141, 141);    
 }
 
 @media screen and (max-width: 768px) {

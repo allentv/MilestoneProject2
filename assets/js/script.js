@@ -5,38 +5,71 @@ $(document).ready(function(){
     let totalTurns = 0;
     let click = 0;
     let checkArray = [];
-
+    
     // Reset buttons
     $("#reset2").click(function(){
-         location.reload();        
+        $("#turns").html("<h1>" + "0" + "</h1>");  
+        let i;
+        for(i=1;i<=16;i++){
+            $("#"+i).removeClass($("#"+i).attr("class")).addClass("card");
+        }
+        totalMatch = 0;
+        totalTurns = 0;
+        click = 0;
+        checkArray = [];
+        colorArray = [];
+        newArray = [];
+        $("#levelSelect").show("slow");
+        $(".medium").show(); 
+        $(".hard").show();
     })
-    
-    $("#reset").click(function(){
+
+    $("#reset").click(function(){                
+        $("#turns").html("<h1>" + "0" + "</h1>");    
         $("#gameEnd").hide();
-        location.reload();
+        let i;
+        for(i=1;i<=16;i++){
+            $("#"+i).removeClass($("#"+i).attr("class")).addClass("card");
+        }
+        totalMatch = 0;
+        totalTurns = 0;
+        click = 0;
+        checkArray = [];
+        colorArray = [];
+        newArray = [];
+        $("#levelSelect").show("slow");
+        $(".medium").show(); 
+        $(".hard").show();               
     })
     
-    //Sound on/off button function
-    let sound = true;
+    //Sound on/off button function 
+    let sound = true;   
     $("#sound").click(function(){
         if(sound===true){    
             sound= false;
             console.log($("#myAudio2").attr("src"));
             $("#sound i").removeClass("fa-volume-up").addClass("fa-volume-mute");
             $("#myAudio2").attr("src","assets/sound/silence.mp3");
-            $("#myAudio3").attr("src","assets/sound/silence.mp3");
+            $("#myAudio3").attr("src","assets/sound/silence.mp3");            
         }
         else{
             sound= true;
             console.log($("#myAudio2").attr("src","assets/sound/silence.mp3"))
             $("#sound i").removeClass("fa-volume-mute").addClass("fa-volume-up");
             $("#myAudio2").attr("src","assets/sound/force-strong.mp3");
-            $("#myAudio2").attr("src","assets/sound/most-impressive.mp3");
+            $("#myAudio3").attr("src","assets/sound/most-impressive.mp3");
         }
     })
-     
     
-    $("#start").one("click", function(){        
+    function smooth(){
+        window.scroll({
+        top: 150, 
+        left: 0, 
+        behavior: 'smooth'
+        });
+    }
+
+    $("#start").one("click", function(){                      
         $(".card").off("click");
         document.getElementById("myAudio1").play();
         $("#levelSelect").show("slow");      
@@ -45,8 +78,9 @@ $(document).ready(function(){
     $("#level").click(function(){
         if($("input[type=radio][name=level]:checked").length===1){
             $("#levelSelect").hide("slow");
-            $("#start").html("<h5>"+"Match the card!"+"</h5>");          
+            $("#start").html("<h5>"+"Match the cards!"+"</h5>");          
             game();
+            smooth()                         
         }      
     })
 
@@ -89,7 +123,7 @@ $(document).ready(function(){
                 document.getElementById("myAudio3").play();                
                 $("#gameEnd").show();
                 $("#finish").html("You took " + totalTurns + " turns to complete!");
-                 funFacts()                
+                funFacts()                               
             }
             else{                                    
                 document.getElementById("myAudio2").play();                   
@@ -101,19 +135,19 @@ $(document).ready(function(){
         }
         else if(array[0]!==array[1]){
             totalTurns += 1;
-            $("#turns").html("<h1>" + totalTurns + "</h1>");                                         
-            checkArray = [];           
+            $("#turns").html("<h1>" + totalTurns + "</h1>");                                        
+                  
             setTimeout(function(){                
             $("."+ array[0]).addClass("card"); 
-            $("."+ array[1]).addClass("card"); 
-            click = 0;
-            checkArray = [];                                    
+            $("."+ array[1]).addClass("card");            
+            checkArray = []; 
+            click = 0;                                
             }, 2000);                        
         }
     }
 
     function game(){    
-        let level = $("input[type=radio][name=level]:checked").val()
+        level = $("input[type=radio][name=level]:checked").val()
         console.log(level);       
         gameArray(level)     
         console.log(colorArray)         
@@ -130,7 +164,7 @@ $(document).ready(function(){
         console.log(($("#1").attr("class")).length)
     
         $(".card").click(function(){
-            if(click<=1 && (($(this).attr("class")).length)>=5){
+            if(click<=1 && (($(this).attr("class")).length)>=6){
                 click += 1;            
                 $(this).removeClass("card");       
                 checkArray.push($(this).attr("class"));
