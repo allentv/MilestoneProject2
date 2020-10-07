@@ -1,11 +1,10 @@
-$(document).ready(function(){    
+$(document).ready(function(){   
     
     // Global variables
     let totalMatch = 0;
     let totalTurns = 0;
     let click = 0;
-    let checkArray = [];
-    
+    let checkArray = [];    
     // Reset buttons
     $("#reset2").click(function(){
         $("#turns").html("<h1>" + "0" + "</h1>");  
@@ -17,7 +16,7 @@ $(document).ready(function(){
         totalTurns = 0;
         click = 0;
         checkArray = [];
-        colorArray = [];
+        characterArray = [];
         newArray = [];
         $("#levelSelect").show("slow");
         $(".medium").show(); 
@@ -35,7 +34,7 @@ $(document).ready(function(){
         totalTurns = 0;
         click = 0;
         checkArray = [];
-        colorArray = [];
+        characterArray = [];
         newArray = [];
         $("#levelSelect").show("slow");
         $(".medium").show(); 
@@ -50,7 +49,8 @@ $(document).ready(function(){
             console.log($("#myAudio2").attr("src"));
             $("#sound i").removeClass("fa-volume-up").addClass("fa-volume-mute");
             $("#myAudio2").attr("src","assets/sound/silence.mp3");
-            $("#myAudio3").attr("src","assets/sound/silence.mp3");            
+            $("#myAudio3").attr("src","assets/sound/silence.mp3");
+            $("#myAudio4").attr("src","assets/sound/silence.mp3");            
         }
         else{
             sound= true;
@@ -58,12 +58,13 @@ $(document).ready(function(){
             $("#sound i").removeClass("fa-volume-mute").addClass("fa-volume-up");
             $("#myAudio2").attr("src","assets/sound/force-strong.mp3");
             $("#myAudio3").attr("src","assets/sound/most-impressive.mp3");
+            $("#myAudio4").attr("src","assets/sound/sure.mp3");
         }
     })
     
     function smooth(){
         window.scroll({
-        top: 150, 
+        top: 200, 
         left: 0, 
         behavior: 'smooth'
         });
@@ -84,18 +85,19 @@ $(document).ready(function(){
         }      
     })
 
-    function gameArray(level){            
+    function gameArray(level){ 
+        let mainArray = ["yoda","yoda","vader","vader","luke","luke","r2","r2","solo","solo","cpo","cpo","boba","boba","chewy","chewy"];             
         if(level==="easy"){                
-                colorArray = ["yoda","yoda","vader","vader","luke","luke","r2","r2"];
+                characterArray = mainArray.splice(0,8);
                 $(".medium").hide(); 
                 $(".hard").hide();                
         }
             else if(level==="medium"){
-                colorArray = ["yoda","yoda","vader","vader","luke","luke","r2","r2","solo","solo","cpo","cpo"];
+                characterArray = mainArray.splice(0,12);
                 $(".hard").hide();                
         }
             else if(level==="hard"){
-                colorArray = ["yoda","yoda","vader","vader","luke","luke","r2","r2","solo","solo","cpo","cpo","boba","boba","chewy","chewy"];                               
+                characterArray = mainArray.splice(0,16);                               
         }    
             
     }
@@ -118,7 +120,7 @@ $(document).ready(function(){
             $("#turns").html("<h1>" + totalTurns + "</h1>");                       
             totalMatch += 1;            
             console.log(totalMatch);
-            if(totalMatch===(colorArray.length)/2){
+            if(totalMatch===(characterArray.length)/2){
                 $(".modal").css("background", "rgba(0,0,0,0.9)")
                 document.getElementById("myAudio3").play();                
                 $("#gameEnd").show();
@@ -135,8 +137,8 @@ $(document).ready(function(){
         }
         else if(array[0]!==array[1]){
             totalTurns += 1;
-            $("#turns").html("<h1>" + totalTurns + "</h1>");                                        
-                  
+            $("#turns").html("<h1>" + totalTurns + "</h1>");                                
+            document.getElementById("myAudio4").play();     
             setTimeout(function(){                
             $("."+ array[0]).addClass("card"); 
             $("."+ array[1]).addClass("card");            
@@ -150,10 +152,10 @@ $(document).ready(function(){
         level = $("input[type=radio][name=level]:checked").val()
         console.log(level);       
         gameArray(level)     
-        console.log(colorArray)         
+        console.log(characterArray)         
        
 
-        let newArray = shuffleArray(colorArray);
+        let newArray = shuffleArray(characterArray);
         console.log(newArray)   
 
         let i;
@@ -187,7 +189,10 @@ $(document).ready(function(){
                 console.log("page found")
             }
             else if (this.readyState == 4 && this.status == 404) {
-                $("#data1").html("zahur meerun");
+                $("#data1").html("Name: Luke Skywalker" );
+                $("#data2").html("Height: 172");
+                $("#data3").html("Mass: 77 ");
+                $("#data4").html("Hair-colour: blond");
             }
         };
 

@@ -12,18 +12,33 @@ h1{
     line-height: 100px;    
 }
 
+h2{    
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-weight: 400;
+    color: #43a5cf;
+    background:rgba(0,0,0,0.6);
+    width: 500px;
+    margin: 0 auto; 
+}
+
 h5{
     letter-spacing: 1px;
     padding: 2px;    
 }
 
-#start{
+#start, #level, #reset{
+    padding: 3px;
+    font-size: 20px;
     color: rgb(235, 20, 20);
     border-radius: 5px;
     background:rgba(0,0,0,0.6);        
 }
 
 .logo{
+    margin: 0 auto;
+    width: 300px;
+    background: rgba(0,0,0,0.6);
     text-align: center;         
 }
 
@@ -168,19 +183,13 @@ body{
     width: 350px;
     margin: 0 auto;  
     position: absolute;
-    top: 200px;
+    top: 250px;
     text-align: center;   
 }
 
 .choose{
     font-size: 18px;
     color: white;
-}
-
-.play{
-    color: rgb(255, 0, 0);
-    border-radius: 5px;
-    background:rgba(0,0,0,0.6);    
 }
 
 .play:hover, #start:hover, #reset2:hover, #sound:hover, #reset:hover{
@@ -268,6 +277,10 @@ input {
 @media screen and (max-width: 576px) {
   .card, .vader, .yoda, .luke, .boba, .r2, .cpo, .solo, .chewy {
       height: 75px;
+  }
+  h2{
+      width: 300px;
+      font-size: 22px;
   }
 } 
 

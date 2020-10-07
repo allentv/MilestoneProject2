@@ -10,13 +10,18 @@
     <link rel="shortcut icon" href="assets/images/favicon.ico">
 </head>
 <body>
+    <!-- header section -->
     <header class="logo" >
-        <a href="index.html"><img src="assets/images/logo.png"></a>       
-    </header>            
+        <a href="index.html"><img src="assets/images/logo.png" alt="logo image"></a>       
+    </header>
+    
+    <!-- main game section -->            
     <section class="game">
-        <div class="d-flex justify-content-center mt-3">
-            <button id="start"><h5>Click here to play!</h5></button>            
+        <h2>May the force be with you....</h2>
+        <div class="d-flex justify-content-center mt-4">
+            <button id="start">Click here to play!</button>            
         </div>
+    <!-- display cards -->
         <div class="row no-gutters justify-content-center mt-3">
             <div class="col-10 col-md-8 col-lg-5">
                 <div class="row no-gutters">
@@ -71,14 +76,18 @@
             <button id="sound"><i class="fas fa-volume-up"></i></button>   
         </div>        
     </section> 
+    <!-- footer with social media links-->
      <footer class="footer mt-5">
-        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-    </footer>     
+        <a href="https://www.facebook.com/StarWars/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com/starwars" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/starwars/?hl=fr" target="_blank"><i class="fab fa-instagram"></i></a>
+    </footer> 
+    <!-- audio section-->    
     <audio id="myAudio1"><source src="assets/sound/lightsaber.mp3" type="audio/mpeg"></audio>
     <audio id="myAudio2"><source src="assets/sound/force-strong.mp3" type="audio/mpeg"></audio> 
-    <audio id="myAudio3"><source src="assets/sound/most-impressive.mp3" type="audio/mpeg"></audio>    
+    <audio id="myAudio3"><source src="assets/sound/most-impressive.mp3" type="audio/mpeg"></audio>
+    <audio id="myAudio4"><source src="assets/sound/sure.mp3" type="audio/mpeg"></audio>
+    <!-- modal section -->   
     <div id="gameEnd" class="modal">
         <div class="modal-content mt-2">    
             <p id="finish"></p>                         
@@ -104,10 +113,10 @@
                 <input type="radio" id="hard" name="level" value="hard">
                 <label for="hard">hard</label>                
         </div>
-        <button id="level" class="play mt-3 mb-3"><h5>Play</h5></button><br>
+        <button id="level" class="play mt-3 mb-3">Play</button><br>
         <i class="fas fa-jedi"></i>    
-    </div>    
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>    
 </body>
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-<script src="assets/js/script.js"></script>
 </html>
