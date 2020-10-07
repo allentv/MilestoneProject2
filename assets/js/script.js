@@ -48,9 +48,10 @@ $(document).ready(function(){
             sound= false;
             console.log($("#myAudio2").attr("src"));
             $("#sound i").removeClass("fa-volume-up").addClass("fa-volume-mute");
-            $("#myAudio2").attr("src","assets/sound/silence.mp3");
-            $("#myAudio3").attr("src","assets/sound/silence.mp3");
-            $("#myAudio4").attr("src","assets/sound/silence.mp3");            
+            for (let i=2; i<=4; i++){
+                 $("#myAudio" + i).attr("src","assets/sound/silence.mp3");
+            }
+                      
         }
         else{
             sound= true;
@@ -69,13 +70,14 @@ $(document).ready(function(){
         behavior: 'smooth'
         });
     }
-
+    // Activates level modal
     $("#start").one("click", function(){                      
         $(".card").off("click");
         document.getElementById("myAudio1").play();
         $("#levelSelect").show("slow");      
-    })        
-     
+    }) 
+
+    // Removes level select Modal and starts game    
     $("#level").click(function(){
         if($("input[type=radio][name=level]:checked").length===1){
             $("#levelSelect").hide("slow");
@@ -84,7 +86,7 @@ $(document).ready(function(){
             smooth()                         
         }      
     })
-
+    // Defines characterArray 
     function gameArray(level){ 
         let mainArray = ["yoda","yoda","vader","vader","luke","luke","r2","r2","solo","solo","cpo","cpo","boba","boba","chewy","chewy"];             
         if(level==="easy"){                
@@ -101,7 +103,7 @@ $(document).ready(function(){
         }    
             
     }
-
+    // Shuffles Array
     function shuffleArray(array) { 
         for (var i = array.length - 1; i > 0; i--) {        
         // Generate random number 
@@ -113,7 +115,7 @@ $(document).ready(function(){
         return array; 
     }   
     
-
+    // Checks for card match
     function matchccheck(array){
         if (array[0]===array[1]){
             totalTurns += 1;
@@ -147,7 +149,7 @@ $(document).ready(function(){
             }, 2000);                        
         }
     }
-
+    // Game Function
     function game(){    
         level = $("input[type=radio][name=level]:checked").val()
         console.log(level);       
@@ -200,7 +202,7 @@ $(document).ready(function(){
         xhr.send();
     }
        
-
+    //Sends API data to HTML div
     function funFacts(){
         let randomnum = Math.floor(Math.random() * 80);
         getData("https://swapi.dev/api/people/"+randomnum+"/", function(data){            
@@ -209,6 +211,5 @@ $(document).ready(function(){
             $("#data3").html("Mass: " + data.mass);
             $("#data4").html("Hair-colour: " + data.hair_color);            
         })
-    }
-    
+    }    
 })

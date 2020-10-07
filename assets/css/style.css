@@ -241,6 +241,7 @@ input {
 }
 
 #reset2, #sound{
+    border: 2px solid red;
     margin: 10px;
     border-radius: 5px;
     background:black;

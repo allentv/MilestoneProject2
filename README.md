@@ -3,6 +3,8 @@
 This project is a Starwars themed memory match game. The game is designed to help
 as a brain training tool to primarily strengthen memory whilst also being fun to play.
 
+![Responsive image for game](assets/doc/responsive.png)
+
 The game is more geared towards Starwars fans and provides Starwars themed visual 
 and audio with the intention of improving the overall playing experience. 
 
@@ -22,6 +24,7 @@ By visiting this site the user should achieve the following:
 * have a fun experience while playing
 * be exposed to general Starwars character facts
 
+A wireframe was constructed using balsamique wireframes. It can be found  [here](assets/doc/wireframe.pdf).
 
 ## FEATURES
 
@@ -152,6 +155,8 @@ with one of the conditions contained in the click function. Problem Was resolved
 To resolve this issue an if/else statement was included so that if a status 404 was obtained a default character fact would 
 appear. Character chosen was Luke Skywalker. This was further tested by providing an incorrect URL to the getdata function 
 and checking output. 
+4. After second card selection, if the cards did not match, the both cards would flip immediately back. This would not give enough
+time for the user to identify which card was selected. This issue was resolved by adding a setTimeout function.
 
 ## DEPLOYMENT
 Gitpod was used as an online IDE and then pushed to GITHUB for [hosting](https://zahur76.github.io/MilestoneProject2/).
@@ -164,12 +169,16 @@ Add an option with a countdown function which the user can choose to add another
 
 ### Content
 
+* balsamiq wireframes application
+* Code used from dev.to to assist in footer placement 
+
 ### Media
 
 * Sound clips were obtained from https://www.101soundboards.com/.
 * card images obtained from Etsy.com
 * Starwars character facts obtained from https://swapi.dev/.
 * logo obtained from https://flamingtext.com/.
+
 
 ### Acknowledgment
 
