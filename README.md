@@ -1,11 +1,11 @@
 # **STAR MATCH**
 
-This project is a Starwars themed memory match game. The game is designed to help
+This project is a Star Wars themed memory match game. The game is designed to help
 as a brain training tool to primarily strengthen memory whilst also being fun to play.
 
 ![Responsive image for game](assets/doc/responsive.png)
 
-The game is more geared towards Starwars fans and provides Starwars themed visual 
+The game is more geared towards Star Wars fans and provides Star Wars themed visual 
 and audio with the intention of improving the overall playing experience. 
 
 ## UX
@@ -22,7 +22,7 @@ By visiting this site the user should achieve the following:
 * be able to modify settings to suit user requirements 
 * have feedback on how well the user is performing
 * have a fun experience while playing
-* be exposed to general Starwars character facts
+* be exposed to general Star Wars character facts
 
 A wireframe was constructed using balsamique wireframes. It can be found  [here](assets/doc/wireframe.pdf).
 
@@ -53,28 +53,29 @@ A counter was included to provide the user with a running count of every turn ma
 
 Two modals were included. The first one permits the user to choose a difficulty level
 which would change the size of card grid system. The second modal permits the user to obtain 
-stats on the number of turns required to complete game, Starwars character fact and a button to 
+stats on the number of turns required to complete game, Star Wars character fact and a button to 
 play again.
 
 ### footer
 
 A footer was added and incoporated social links to:
-* official Starwars facebook site
-* official Starwars twitter site
-* official Starwars Istagram site
+* official Star Wars facebook site
+* official Star Wars twitter site
+* official Star Wars Istagram site
 
 ## TECHNOLOGIES USED
 
 * HTML
 * css 
 * javacript
-* Jquery to simplify in DOM manipulation
+* Jquery to simplify DOM manipulation
 * official W3C validator
 * css official validator(jigsaw)
 * JSHint 
 * Jasmine testing framwork
 * chrome dev tools
 * Bootstrap 4 for page layout purposes and responsive design aspects
+* balsamiq wireframes application
 
 
 ## JAVASCRIPT MAIN GAME CODE DESIGN PHILOSOPHY
@@ -102,21 +103,21 @@ The goals setout in the UX section were accomplished as follows:
 
 1. Be able to easily navigate through the site with minimum difficulty</br>
 The site design used straight forward user friendly step-by-step guides to help the user navigate
-the options with minimum difficulty. This was achieved by the use of modals and text change.
+the options with minimum difficulty. This was achieved by the use of modals and text changes.
 For example once the user selected "click here to play' a modal would open to allow the user
 input the next requirement being level select. Also the text "click here to play" changes to 
-"match the cards".
+"match the cards" indicating that the game has started.
 2. Be able to modify settings to suit user requirement</br>
 This was primarily achieved by providing a level select option which would change difficulty levels.
 There is also a sound on/off and restart button to modify settings. 
 3. Have feedback on how well the user is performing</br>
 This was achieved by audio and visual means. Firsly a specific audio can be heard if the match is correct or
 not. Secondly a counter is provided indicating how many turns have been taken which can be used as a
-baseline for future attempts.
+baseline for future game attempts.
 4. Have a fun experience while playing.</br>  
-This was achieved by using Starwars design which made the game more visually apealing.
-5. Be exposed to general Starwars character facts</br>
-This was achieved by using Starwars API from https://swapi.dev/. This would provide a random character
+This was achieved by using Star Wars design which made the game more visually appealing.
+5. Be exposed to general Star Wars character facts</br>
+This was achieved by using Star Wars API from https://swapi.dev/. This would provide a random character
 fact highlighting the characters name, height, weight, and hair-clour.
 
 
@@ -151,11 +152,11 @@ resolved by adding a condition in the click function whereby clicked card could 
 2. Once the game was reset using the restart button the game logic would breakdown. Problem was identified
 with one of the conditions contained in the click function. Problem Was resolved by changing ($(this).attr("class")).length)>=5 to
 ($(this).attr("class")).length)>=6.
-3. The Starwars character funfact at the end of the game would not show up if a status 404 was obtained.
+3. The Star Wars character funfact at the end of the game would not show up if a status 404 was obtained.
 To resolve this issue an if/else statement was included so that if a status 404 was obtained a default character fact would 
 appear. Character chosen was Luke Skywalker. This was further tested by providing an incorrect URL to the getdata function 
 and checking output. 
-4. After second card selection, if the cards did not match, the both cards would flip immediately back. This would not give enough
+4. After second card selection, if the cards did not match, the both cards would flip immediately back. This would not give sufficient
 time for the user to identify which card was selected. This issue was resolved by adding a setTimeout function.
 
 ## DEPLOYMENT
@@ -169,14 +170,13 @@ Add an option with a countdown function which the user can choose to add another
 
 ### Content
 
-* balsamiq wireframes application
+* Star Wars character facts obtained from https://swapi.dev/.
 * Code used from dev.to to assist in footer placement 
 
 ### Media
 
 * Sound clips were obtained from https://www.101soundboards.com/.
 * card images obtained from Etsy.com
-* Starwars character facts obtained from https://swapi.dev/.
 * logo obtained from https://flamingtext.com/.
 
 
