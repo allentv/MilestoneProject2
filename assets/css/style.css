@@ -6,6 +6,7 @@
     font-family: 'Orbitron', sans-serif;
 }
 
+/* text styling */
 h1{ 
     font-family: 'Press Start 2P', cursive;    
     padding: 2px;
@@ -16,7 +17,7 @@ h2{
     font-family: 'Roboto', sans-serif;
     text-align: center;
     font-weight: 400;
-    color: #43a5cf;
+    color: rgba(67, 165, 207, 0.6);
     background:rgba(0,0,0,0.6);
     width: 500px;
     margin: 0 auto; 
@@ -27,12 +28,20 @@ h5{
     padding: 2px;    
 }
 
-#start, #level, #reset{
+/* button styling */
+.play{
+    border: 2px solid rgb(105, 102, 102);
     padding: 3px;
     font-size: 20px;
     color: rgb(235, 20, 20);
     border-radius: 5px;
-    background:rgba(0,0,0,0.6);        
+    background:rgba(0,0,0,1); 
+    min-width: 100px;
+    margin: 5px;        
+}
+
+.reset{
+    text-align: center;
 }
 
 .logo{
@@ -54,10 +63,7 @@ body{
     flex: 1;
 }
 
-.reset{
-    text-align: center;
-}
-
+/* Card section */
 .yoda{
     border: 2px solid grey;
     border-radius: 10px;
@@ -68,8 +74,7 @@ body{
     background-position: center;
     background-repeat: no-repeat;    
     margin: 5px; 
-}   
-
+}  
 
 .vader{
     border: 2px solid grey;
@@ -175,6 +180,7 @@ body{
     line-height: 100px; 
 }
 
+/* modal section */
 .modal{ 
     border: 3px solid red; 
     height: 250px;
@@ -185,6 +191,13 @@ body{
     position: absolute;
     top: 250px;
     text-align: center;   
+}
+
+#character-info{
+    height: 280px;
+    position: absolute;
+    top: 200px;
+    background-color:rgba(0,0,0,0.9); 
 }
 
 .choose{
@@ -240,17 +253,7 @@ input {
     line-height: 100px;    
 }
 
-#reset2, #sound{
-    border: 2px solid red;
-    margin: 10px;
-    border-radius: 5px;
-    background:black;
-    color: red;
-    height: 50px;
-    width: 100px;
-    font-size: 20px;        
-}
-
+/* Footer section */
 .footer{      
     line-height: 60px;
     font-size: 35px;
@@ -269,6 +272,7 @@ input {
     color: rgb(151, 141, 141);    
 }
 
+/* @media screen section */
 @media screen and (max-width: 768px) {
   .card, .vader, .yoda, .luke, .boba, .r2, .cpo, .solo, .chewy {
       height: 100px;

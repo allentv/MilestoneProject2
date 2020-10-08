@@ -4,7 +4,10 @@ $(document).ready(function(){
     let totalMatch = 0;
     let totalTurns = 0;
     let click = 0;
-    let checkArray = [];    
+    let checkArray = []; 
+    let characterArray = [];
+    let newArray = [];
+    
     // Reset buttons
     $("#reset2").click(function(){
         $("#turns").html("<h1>" + "0" + "</h1>");  
@@ -21,7 +24,7 @@ $(document).ready(function(){
         $("#levelSelect").show("slow");
         $(".medium").show(); 
         $(".hard").show();
-    })
+    });
 
     $("#reset").click(function(){                
         $("#turns").html("<h1>" + "0" + "</h1>");    
@@ -39,29 +42,26 @@ $(document).ready(function(){
         $("#levelSelect").show("slow");
         $(".medium").show(); 
         $(".hard").show();               
-    })
+    });
     
-    //Sound on/off button function 
+    //Sound on/off button control function
     let sound = true;   
     $("#sound").click(function(){
         if(sound===true){    
-            sound= false;
-            console.log($("#myAudio2").attr("src"));
+            sound= false;            
             $("#sound i").removeClass("fa-volume-up").addClass("fa-volume-mute");
             for (let i=2; i<=4; i++){
                  $("#myAudio" + i).attr("src","assets/sound/silence.mp3");
-            }
-                      
+            }                      
         }
         else{
-            sound= true;
-            console.log($("#myAudio2").attr("src","assets/sound/silence.mp3"))
+            sound= true;            
             $("#sound i").removeClass("fa-volume-mute").addClass("fa-volume-up");
             $("#myAudio2").attr("src","assets/sound/force-strong.mp3");
             $("#myAudio3").attr("src","assets/sound/most-impressive.mp3");
             $("#myAudio4").attr("src","assets/sound/sure.mp3");
         }
-    })
+    });
     
     function smooth(){
         window.scroll({
@@ -70,12 +70,12 @@ $(document).ready(function(){
         behavior: 'smooth'
         });
     }
+
     // Activates level modal
-    $("#start").one("click", function(){                      
-        $(".card").off("click");
+    $("#start").one("click", function(){                 
         document.getElementById("myAudio1").play();
         $("#levelSelect").show("slow");      
-    }) 
+    }); 
 
     // Removes level select Modal and starts game    
     $("#level").click(function(){
@@ -83,11 +83,12 @@ $(document).ready(function(){
             $("#levelSelect").hide("slow");
             $("#start").html("<h5>"+"Match the cards!"+"</h5>");          
             game();
-            smooth()                         
+            smooth();                         
         }      
-    })
+    }); 
+
     // Defines characterArray 
-    function gameArray(level){ 
+    function gameArray(level){        
         let mainArray = ["yoda","yoda","vader","vader","luke","luke","r2","r2","solo","solo","cpo","cpo","boba","boba","chewy","chewy"];             
         if(level==="easy"){                
                 characterArray = mainArray.splice(0,8);
@@ -100,38 +101,36 @@ $(document).ready(function(){
         }
             else if(level==="hard"){
                 characterArray = mainArray.splice(0,16);                               
-        }    
-            
+        } 
+        
     }
-    // Shuffles Array
-    function shuffleArray(array) { 
-        for (var i = array.length - 1; i > 0; i--) {        
-        // Generate random number 
-            var j = Math.floor(Math.random() * (i + 1));                            
-            var temp = array[i]; 
-            array[i] = array[j]; 
-            array[j] = temp; 
-            }         
-        return array; 
-    }   
+
+    // Shuffles Array 
+    function shuffleArray(array){
+        let len = array.length;
+        for(let i=0; i<=len-1; i++){
+        let rand = Math.floor((Math.random() * (array.length-1)) + 0);  
+        newArray.push(array[rand]);
+        array.splice(rand,1);        
+        }
+    return newArray
+    };   
     
-    // Checks for card match
-    function matchccheck(array){
+    // Checks for card match 
+    function matchccheck(array){        
         if (array[0]===array[1]){
             totalTurns += 1;
             $("#turns").html("<h1>" + totalTurns + "</h1>");                       
-            totalMatch += 1;            
-            console.log(totalMatch);
-            if(totalMatch===(characterArray.length)/2){
-                $(".modal").css("background", "rgba(0,0,0,0.9)")
+            totalMatch += 1;
+            if(totalMatch===(newArray.length)/2){
+                $(".modal").css("background", "rgba(0,0,0,0.9)");
                 document.getElementById("myAudio3").play();                
                 $("#gameEnd").show();
                 $("#finish").html("You took " + totalTurns + " turns to complete!");
-                funFacts()                               
+                funFacts();                               
             }
             else{                                    
-                document.getElementById("myAudio2").play();                   
-                console.log("." + array[0])                
+                document.getElementById("myAudio2").play();                
                 $("."+ array[0]).off("click");               
                 click = 0;          
                 checkArray = [];         
@@ -149,46 +148,34 @@ $(document).ready(function(){
             }, 2000);                        
         }
     }
-    // Game Function
+                                                                           
+    // Game logic
     function game(){    
-        level = $("input[type=radio][name=level]:checked").val()
-        console.log(level);       
-        gameArray(level)     
-        console.log(characterArray)         
-       
-
-        let newArray = shuffleArray(characterArray);
-        console.log(newArray)   
-
+        let level = $("input[type=radio][name=level]:checked").val();             
+        gameArray(level);        
+        newArray = shuffleArray(characterArray);        
         let i;
         for (i=1; i<newArray.length+1; i++){
             $("#" + i).addClass(newArray[i-1]);
         }  
-    
-        console.log(($("#1").attr("class")).length)
-    
         $(".card").click(function(){
             if(click<=1 && (($(this).attr("class")).length)>=6){
                 click += 1;            
                 $(this).removeClass("card");       
-                checkArray.push($(this).attr("class"));
-                console.log(checkArray);
-                console.log(click);
+                checkArray.push($(this).attr("class"));                
                 if (click===2){ 
-                matchccheck(checkArray)           
+                matchccheck(checkArray);           
                 }
             }
-        })  
+        });  
     }
     
     // Starwars API character select 
     function getData(url, cb) {
         let xhr = new XMLHttpRequest();
-
         xhr.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                cb(JSON.parse(this.responseText));
-                console.log("page found")
+                cb(JSON.parse(this.responseText));                
             }
             else if (this.readyState == 4 && this.status == 404) {
                 $("#data1").html("Name: Luke Skywalker" );
@@ -197,7 +184,6 @@ $(document).ready(function(){
                 $("#data4").html("Hair-colour: blond");
             }
         };
-
         xhr.open("GET", url);
         xhr.send();
     }
@@ -210,6 +196,6 @@ $(document).ready(function(){
             $("#data2").html("Height: " + data.height);
             $("#data3").html("Mass: " + data.mass);
             $("#data4").html("Hair-colour: " + data.hair_color);            
-        })
+        });
     }    
-})
+});                                                                                                     

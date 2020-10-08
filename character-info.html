@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Match</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.0/css/all.css" integrity="sha384-OLYO0LymqQ+uHXELyx93kblK5YIS3B2ZfLGBmsJaUyor7CpMTBsahDHByqSuWW+q" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+</head>
+<body>
+    <!-- header section -->
+    <header class="logo" >
+        <a href="index.html"><img src="assets/images/logo.png" alt="logo image"></a>       
+    </header>    
+    <!-- main game section -->            
+    <section class="game">
+        <h2>Select a character</h2>        
+    <!-- display cards -->
+        <div class="row no-gutters justify-content-center mt-3">
+            <div class="col-10 col-md-8 col-lg-5">
+                <div class="row no-gutters">
+                    <div class="col-3"><div class="yoda char1" value="20"></div>
+                    </div>
+                    <div class="col-3"><div class="vader char2" value="4"></div>
+                    </div>
+                    <div class="col-3"><div class="luke char3" value="1"></div>
+                    </div>
+                    <div class="col-3"><div class="r2 char4" value="3"></div>
+                    </div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="col-3"><div class="solo char5" value="14"></div>
+                    </div>
+                    <div class="col-3"><div class="cpo char6" value="2"></div>
+                    </div>
+                    <div class="col-3"><div class="boba char7" value="22"></div>
+                    </div>
+                    <div class="col-3"><div class="chewy char8" value="13"></div>
+                    </div>
+                </div>                              
+            </div>               
+        </div>
+    </section> 
+     <div class="reset mt-3">
+            <a href="index.html"><button class="play">Home</button></a>             
+        </div>               
+    <!-- footer with social media links-->
+     <footer class="footer mt-5">
+        <a href="https://www.facebook.com/StarWars/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com/starwars" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/starwars/?hl=fr" target="_blank"><i class="fab fa-instagram"></i></a>
+    </footer>
+    <!-- modal section -->   
+    <div id="character-info" class="modal">
+        <div class="modal-content mt-2">    
+            <p id="finish"></p>                         
+            <div class="choose">
+                <h5>Character Facts!</h5>
+            </div>
+            <div class="fun-facts mb-3 mt-2">    
+                    <div id="data1"></div>
+                    <div id="data2"></div>
+                    <div id="data3"></div>
+                    <div id="data4"></div>
+                    <div id="data5"></div>
+                    <div id="data6"></div>
+            </div>
+            <button id="reset" class="play">Close</button> 
+        </div>  
+    </div> 
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="assets/js/character.js"></script>
+</body>
+</html>

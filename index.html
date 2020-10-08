@@ -13,13 +13,12 @@
     <!-- header section -->
     <header class="logo" >
         <a href="index.html"><img src="assets/images/logo.png" alt="logo image"></a>       
-    </header>
-    
+    </header>    
     <!-- main game section -->            
     <section class="game">
         <h2>May the force be with you....</h2>
         <div class="d-flex justify-content-center mt-4">
-            <button id="start">Click here to play!</button>            
+            <button id="start" class="play">Click here to play!</button>            
         </div>
     <!-- display cards -->
         <div class="row no-gutters justify-content-center mt-3">
@@ -72,9 +71,12 @@
             </div>            
         </div>
         <div class="reset mt-3">
-            <button id="reset2">Restart</button> 
-            <button id="sound"><i class="fas fa-volume-up"></i></button>   
-        </div>        
+            <button id="reset2" class="play">Restart</button> 
+            <button id="sound" class="play"><i class="fas fa-volume-up"></i></button>   
+        </div>
+        <div class="reset mt-3">
+            <a href="character-info.html"><button class="play">character info</button></a>             
+        </div>       
     </section> 
     <!-- footer with social media links-->
      <footer class="footer mt-5">
@@ -115,7 +117,7 @@
         </div>
         <button id="level" class="play mt-3 mb-3">Play</button><br>
         <i class="fas fa-jedi"></i>    
-    </div>
+    </div>    
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>    
 </body>
