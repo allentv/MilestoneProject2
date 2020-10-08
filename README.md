@@ -6,8 +6,8 @@ to primarily strengthen memory whilst also being fun to play.
 
 ![Responsive image for game](assets/doc/responsive.png)
 
-The game is more geared towards Star Wars fans and incorportes Star Wars themed images 
-and audio with the intention of improving the overall playing experience. 
+The game is more geared towards Star Wars fans and incorportes Star Wars themed images, audio and
+facts with the intention of improving the overall playing experience. 
 
 ## UX
 
@@ -29,10 +29,15 @@ A wireframe was constructed using balsamique wireframes. It can be found  [here]
 
 ## FEATURES
 
-The site consists of a one page design made up of a logo, card grid system, control buttons, counter and
+The site consists of a two page design. The first page is  made up of a logo, card grid system, control buttons, counter and
 footer. Two modals have also been included for selection purposes.
 
 ![Image of cards](assets/doc/main.png)
+
+The second page consists of card grid system which can be clicked to show character facts with a home button to return
+back to game.
+
+![Image of cards](assets/doc/facts.png)
 
 ### Grid system
 
@@ -83,11 +88,11 @@ A footer was added which incoporated social links to:
 
 The code logic behind the main game was as follow:
 * Determine grid size my selecting difficulty level which would hide or expose div elements which specific classes.
-* Provide the attribute of '.card' and '.character' to the class of all card elements using a for loop.
+* Provide the attribute of '.card' and '.character' (e.g ".yoda") to the class of all card elements using a for loop.
 The '.card' class would be situated below '.character' class in css to make it the dominant class.
 * Select two cards. 
 * For each card selected the class attribute of '.card' would be removed using removeClass method, which would expose the '.character' class.
-* A Comparison of the remaining class attribute of the two selected cards is performed.
+* A Comparison of the remaining class attribute of the two selected cards is then performed.
 * If the remaining class attribute for two cards are the same then the off click method (.off("click") would be applied and match count icreased by 1.
 * If the remaining class attribute are not the same the class attribute of ".card" would be added back which would hide the character class.
 * sequence continues until all '.character' classes are exposed which is identified by using match count and grid size. 
@@ -102,12 +107,12 @@ The following provides details of testing performed during development.
 The goals set out in the UX section were accomplished as follows: 
 
 1. Be able to navigate through the site with minimal difficulty</br>
-The site design used straight forward user friendly step-by-step guides to help the user navigate
-the options with ease. This was achieved by the use of modals and text changes.
-For example once the user selected "click here to play' a modal would open to allow the user to
-input the next required field being level select. Also the text "click here to play" changes to 
-"match the cards" indicating that the game has started. This was further tested by allowing test 
-users to play the game with minimum prompting.
+The site design used straight forward user friendly step-by-step guides to help assist the player navigate
+the options with ease. This was further achieved by the use of hide/show jquery methods which manipulated modals and text changes.
+For example once the user selected "click here to play' the grid system would appear together with a 
+modal would open to allow the user to input the next required field. Also the text 
+"click here to play" changes to "match the cards" indicating that the game has started. This was further 
+tested by allowing test users to play the game with minimum prompting.
 2. Be able to modify settings to suit user requirement</br>
 This was primarily achieved by providing a level select option which would change the card grid size and hence difficulty.
 There is also a sound on/off and restart button to modify settings. 
@@ -119,7 +124,8 @@ baseline for future game attempts.
 This was achieved by using Star Wars themed design which made the game more visually appealing.
 5. Be exposed to general Star Wars character facts</br>
 This was achieved by using Star Wars API from https://swapi.dev/. This would provide a random character
-fact highlighting the characters name, height, weight, and hair-clour.
+fact highlighting the characters name, height, weight, and hair-clour when the game finished. A second page
+was also included which allows the user to click on main Star wars characters to obtain facts.
 
 
 ### Validators
@@ -160,10 +166,15 @@ with one of the conditions contained in the click function. Problem Was resolved
 3. The Star Wars character funfact at the end of the game would not show up if a status 404 was obtained.
 To resolve this issue an if/else statement was included so that if a status 404 was obtained a default character fact would 
 appear. Character chosen was Luke Skywalker. This was further tested by providing an incorrect URL to the getdata function 
-and checking output. 
+and checking the output.</br>
+In the case of character facts on the character-info.html page, if a status of 404 occured then data unavailable would appear in
+the fields. 
+![Image of unavailable data](assets/doc/data.png)
+
 4. After second card selection, if the cards did not match, the both cards would flip immediately back. This would not give sufficient
 time for the user to identify which card was selected. This issue was resolved by adding a setTimeout function.
-5. On the level select modal the play button could be pressed without a level being selected. To counter this problem 
+5. On the level select modal the play button could be pressed withou
+t a level being selected. To counter this problem 
 a condition was added to activate the play button only when a level was selected.
 
 
@@ -185,6 +196,7 @@ Add a countdown option to add another level of difficulty to the game.
 
 ## CREDITS
 
+
 ### Content
 
 * Star Wars character facts obtained from https://swapi.dev/.
@@ -195,9 +207,11 @@ Add a countdown option to add another level of difficulty to the game.
 * Sound clips were obtained from https://www.101soundboards.com/.
 * card images obtained from Etsy.com
 * logo obtained from https://flamingtext.com/.
-
+* fontawesome.com
 
 ### Acknowledgment
+
+* I would like to thank zara meerun, sofia meerun and behlal meerun for their input.
 
 
 

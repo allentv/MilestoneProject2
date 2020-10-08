@@ -8,6 +8,11 @@ $(document).ready(function(){
     let characterArray = [];
     let newArray = [];
     
+    $(".grid").hide();
+    $("#reset2").hide();
+    $(".score").hide();
+    $("#sound").hide();
+
     // Reset buttons
     $("#reset2").click(function(){
         $("#turns").html("<h1>" + "0" + "</h1>");  
@@ -72,10 +77,14 @@ $(document).ready(function(){
     }
 
     // Activates level modal
-    $("#start").one("click", function(){                 
+    $("#start").one("click", function(){
+        $("#reset2").show("slow");
+        $(".grid").show("slow"); 
+        $(".score").show("slow");
+        $("#sound").show("slow");                
         document.getElementById("myAudio1").play();
-        $("#levelSelect").show("slow");      
-    }); 
+        $("#levelSelect").show();       
+    });    
 
     // Removes level select Modal and starts game    
     $("#level").click(function(){
@@ -113,8 +122,8 @@ $(document).ready(function(){
         newArray.push(array[rand]);
         array.splice(rand,1);        
         }
-    return newArray
-    };   
+    return newArray;
+    }   
     
     // Checks for card match 
     function matchccheck(array){        
@@ -124,10 +133,10 @@ $(document).ready(function(){
             totalMatch += 1;
             if(totalMatch===(newArray.length)/2){
                 $(".modal").css("background", "rgba(0,0,0,0.9)");
-                document.getElementById("myAudio3").play();                
+                document.getElementById("myAudio3").play();
+                funFacts();                 
                 $("#gameEnd").show();
-                $("#finish").html("You took " + totalTurns + " turns to complete!");
-                funFacts();                               
+                $("#finish").html("You took " + totalTurns + " turns to complete!");                                              
             }
             else{                                    
                 document.getElementById("myAudio2").play();                

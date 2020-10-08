@@ -23,6 +23,16 @@ h2{
     margin: 0 auto; 
 }
 
+h3{    
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    font-weight: 500;
+    color: rgba(247, 4, 4, 0.8);
+    background:rgba(0,0,0,0.6);
+    width: 300px;
+    margin: 0 auto;
+}
+
 h5{
     letter-spacing: 1px;
     padding: 2px;    
@@ -64,6 +74,13 @@ body{
 }
 
 /* Card section */
+.myImage img{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    opacity: 0.8;
+}
+
 .yoda{
     border: 2px solid grey;
     border-radius: 10px;
@@ -106,7 +123,7 @@ body{
     border-radius: 10px;
     background: white;
     height: 125px;
-    background-image: url("../images/R2.png");
+    background-image: url("../images/r2.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;    
@@ -130,7 +147,7 @@ body{
     border-radius: 10px;
     background: white;
     height: 125px;
-    background-image: url("../images/3PO.jpg");
+    background-image: url("../images/cpo.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;    
@@ -159,6 +176,54 @@ body{
     background-position: center;
     background-repeat: no-repeat;    
     margin: 5px;
+}
+
+.lando{
+    border: 2px solid grey;
+    border-radius: 10px;
+    background: white;
+    height: 125px;
+    background-image: url("../images/lando.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;    
+    margin: 5px;
+}
+
+.leia{
+    border: 2px solid grey;
+    border-radius: 10px;
+    background: white;
+    height: 125px;
+    background-image: url("../images/leia.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;    
+    margin: 5px;
+} 
+
+.obi{
+    border: 2px solid grey;
+    border-radius: 10px;
+    background: white;
+    height: 125px;
+    background-image: url("../images/obi.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;    
+    margin: 5px;
+}
+
+.ackbar{
+    border: 2px solid grey;
+    border-radius: 10px;
+    background: white;
+    height: 125px;
+    background-image: url("../images/ackbar.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;    
+    margin: 5px;
 } 
 
 .card{
@@ -183,20 +248,20 @@ body{
 /* modal section */
 .modal{ 
     border: 3px solid red; 
-    height: 250px;
+    height: 270px;
     border-radius: 10px;
     background-color:rgba(0,0,0,0.8);  
     width: 350px;
     margin: 0 auto;  
     position: absolute;
-    top: 250px;
+    top: 275px;
     text-align: center;   
 }
 
 #character-info{
-    height: 280px;
+    height: 380px;
     position: absolute;
-    top: 200px;
+    top: 175px;
     background-color:rgba(0,0,0,0.9); 
 }
 

@@ -1,15 +1,17 @@
-$(document).ready(function(){
-
-    for(let i=1; i<=8; i++){
-        $(".char" + i).click(function(){
+$(document).ready(function(){    
+    
+    $(".char").click(function(){
+        $(this).removeClass("char");
+        let image = $(this).attr("class");        
+        $(".myImage img").attr("src","assets/images/" + image +".png");
+        $(".myImage img").attr("alt", image);              
         $("#character-info").show();
-        funFacts($(this).attr("value"));            
-        })
-    }    
+        funFacts($(this).attr("id"));
+    });
 
     $("#reset").click(function(){
-         $("#character-info").hide(); 
-    })
+         $("#character-info").hide();         
+    });
 
     // Starwars API character select 
     function getData(url, cb) {
@@ -22,8 +24,8 @@ $(document).ready(function(){
                 $("#data1").html("Name: Data unavailable" );
                 $("#data2").html("Height: Data unavailable");
                 $("#data3").html("Mass: Data unavailable");
-                $("#data4").html("Hair-colour: unavailable");
-                 $("#data5").html("Eye Colour: Data unavailable");
+                $("#data4").html("Hair-colour: Data unavailable");
+                $("#data5").html("Eye Colour: Data unavailable");
                 $("#data6").html("Birth year: Data unavailable");
             }
         };

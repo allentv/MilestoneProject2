@@ -14,37 +14,47 @@
     <header class="logo" >
         <a href="index.html"><img src="assets/images/logo.png" alt="logo image"></a>       
     </header>    
-    <!-- main game section -->            
-    <section class="game">
-        <h2>Select a character</h2>        
+    <!-- Character section -->            
+    <section class="game mt-3">
+        <h3>Select a character</h3>        
     <!-- display cards -->
-        <div class="row no-gutters justify-content-center mt-3">
+        <div class="row no-gutters justify-content-center mt-4">
             <div class="col-10 col-md-8 col-lg-5">
                 <div class="row no-gutters">
-                    <div class="col-3"><div class="yoda char1" value="20"></div>
+                    <div class="col-3"><div id="20" class="yoda char"></div>
                     </div>
-                    <div class="col-3"><div class="vader char2" value="4"></div>
+                    <div class="col-3"><div id="4" class="vader char"></div>
                     </div>
-                    <div class="col-3"><div class="luke char3" value="1"></div>
+                    <div class="col-3"><div id="1" class="luke char"></div>
                     </div>
-                    <div class="col-3"><div class="r2 char4" value="3"></div>
+                    <div class="col-3"><div id="3" class="r2 char"></div>
                     </div>
                 </div>
                 <div class="row no-gutters">
-                    <div class="col-3"><div class="solo char5" value="14"></div>
+                    <div class="col-3"><div id="14" class="solo char"></div>
                     </div>
-                    <div class="col-3"><div class="cpo char6" value="2"></div>
+                    <div class="col-3"><div id="2" class="cpo char"></div>
                     </div>
-                    <div class="col-3"><div class="boba char7" value="22"></div>
+                    <div class="col-3"><div id="22" class="boba char"></div>
                     </div>
-                    <div class="col-3"><div class="chewy char8" value="13"></div>
+                    <div class="col-3"><div id="13" class="chewy char"></div>
                     </div>
-                </div>                              
+                </div> 
+                <div class="row no-gutters">
+                    <div class="col-3"><div id="10" class="obi char"></div>
+                    </div>
+                    <div class="col-3"><div id="25" class="lando char"></div>
+                    </div>
+                    <div class="col-3"><div id="5" class="leia char"></div>
+                    </div>
+                    <div class="col-3"><div id="27" class="ackbar char"></div>
+                    </div>
+                </div>                             
             </div>               
         </div>
     </section> 
-     <div class="reset mt-3">
-            <a href="index.html"><button class="play">Home</button></a>             
+     <div class="reset mt-5">
+            <a href="index.html" class="play">Home</a>             
         </div>               
     <!-- footer with social media links-->
      <footer class="footer mt-5">
@@ -52,14 +62,15 @@
         <a href="https://twitter.com/starwars" target="_blank"><i class="fab fa-twitter"></i></a>
         <a href="https://www.instagram.com/starwars/?hl=fr" target="_blank"><i class="fab fa-instagram"></i></a>
     </footer>
-    <!-- modal section -->   
+    <!-- modal section/Character facts -->   
     <div id="character-info" class="modal">
         <div class="modal-content mt-2">    
             <p id="finish"></p>                         
             <div class="choose">
                 <h5>Character Facts!</h5>
             </div>
-            <div class="fun-facts mb-3 mt-2">    
+            <div class="fun-facts mb-3 mt-2"> 
+                    <div class="myImage mb-2"><img src="assets/images/yoda.png" alt="yoda"></div>   
                     <div id="data1"></div>
                     <div id="data2"></div>
                     <div id="data3"></div>
