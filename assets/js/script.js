@@ -7,11 +7,17 @@ $(document).ready(function(){
     let checkArray = []; 
     let characterArray = [];
     let newArray = [];
-    
+
+    // Initial display settings for main page
     $(".grid").hide();
     $("#reset2").hide();
     $(".score").hide();
     $("#sound").hide();
+
+    for(let i=0; i<=4; i++){
+        $("#start").fadeOut(500);
+        $("#start").fadeIn(200);
+    }
 
     // Reset buttons
     $("#reset2").click(function(){
@@ -26,9 +32,11 @@ $(document).ready(function(){
         checkArray = [];
         characterArray = [];
         newArray = [];
+        $("#gameEnd").hide();
         $("#levelSelect").show("slow");
         $(".medium").show(); 
         $(".hard").show();
+        smooth();
     });
 
     $("#reset").click(function(){                
@@ -68,22 +76,24 @@ $(document).ready(function(){
         }
     });
     
+    // Scrolls screen down once level selected
     function smooth(){
         window.scroll({
         top: 200, 
         left: 0, 
         behavior: 'smooth'
         });
-    }
+    }    
 
     // Activates level modal
     $("#start").one("click", function(){
+        $(".fa-galactic-senate").hide();
         $("#reset2").show("slow");
-        $(".grid").show("slow"); 
+        $(".grid").show(1000); 
         $(".score").show("slow");
         $("#sound").show("slow");                
         document.getElementById("myAudio1").play();
-        $("#levelSelect").show();       
+        $("#levelSelect").show(1000);       
     });    
 
     // Removes level select Modal and starts game    
@@ -92,7 +102,13 @@ $(document).ready(function(){
             $("#levelSelect").hide("slow");
             $("#start").html("<h5>"+"Match the cards!"+"</h5>");          
             game();
-            smooth();                         
+            smooth();
+        }
+        else{
+            for(let i=0; i<=5; i++){
+                $(".choose").fadeOut(300);
+                $(".choose").fadeIn(300);
+            }           
         }      
     }); 
 

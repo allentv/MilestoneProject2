@@ -7,7 +7,16 @@ $(document).ready(function(){
         $(".myImage img").attr("alt", image);              
         $("#character-info").show();
         funFacts($(this).attr("id"));
+        smooth()
     });
+
+    function smooth(){
+        window.scroll({
+        top: 200, 
+        left: 0, 
+        behavior: 'smooth'
+        });
+    }  
 
     $("#reset").click(function(){
          $("#character-info").hide();         

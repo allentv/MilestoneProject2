@@ -57,8 +57,8 @@ A counter was included to provide the user with a running count of every turn ma
 
 ![Image of cards](assets/doc/level.png)
 
-Two modals were included. The first one permits the user to choose a difficulty level
-which would change the size of card grid system before starting game. The second modal contained
+Two modals were included for the game. The first one permits the user to choose a difficulty level
+which would change the size of card grid system. The second modal activated when the game was complete and contained
 stats on the number of turns required to complete the game, Star Wars character fact and a button to 
 play again.
 
@@ -93,7 +93,7 @@ The '.card' class would be situated below '.character' class in css to make it t
 * Select two cards. 
 * For each card selected the class attribute of '.card' would be removed using removeClass method, which would expose the '.character' class.
 * A Comparison of the remaining class attribute of the two selected cards is then performed.
-* If the remaining class attribute for two cards are the same then the off click method (.off("click") would be applied and match count icreased by 1.
+* If the remaining class attribute for two cards are the same then the off click method (.off("click")) would be applied and match count increased by 1.
 * If the remaining class attribute are not the same the class attribute of ".card" would be added back which would hide the character class.
 * sequence continues until all '.character' classes are exposed which is identified by using match count and grid size. 
 
@@ -160,9 +160,11 @@ using Dev tools and then finally using the website http://ami.responsivedesign.i
 
 1. Once a specific card was clicked it could be selected again causing card game logic to breakdown. This was 
 resolved by adding a condition in the click function whereby clicked card could not be seleted again. 
+
 2. Once the game was reset using the restart button the game logic would breakdown. Problem was identified
 with one of the conditions contained in the click function. Problem Was resolved by changing ($(this).attr("class")).length)>=5 to
 ($(this).attr("class")).length)>=6.
+
 3. The Star Wars character funfact at the end of the game would not show up if a status 404 was obtained.
 To resolve this issue an if/else statement was included so that if a status 404 was obtained a default character fact would 
 appear. Character chosen was Luke Skywalker. This was further tested by providing an incorrect URL to the getdata function 
@@ -171,11 +173,18 @@ In the case of character facts on the character-info.html page, if a status of 4
 the fields. 
 ![Image of unavailable data](assets/doc/data.png)
 
-4. After second card selection, if the cards did not match, the both cards would flip immediately back. This would not give sufficient
+4. After second card selection, if the cards did not match, both cards would flip immediately back. This would not give sufficient
 time for the user to identify which card was selected. This issue was resolved by adding a setTimeout function.
-5. On the level select modal the play button could be pressed withou
-t a level being selected. To counter this problem 
-a condition was added to activate the play button only when a level was selected.
+
+5. On the level select modal the play button could be pressed without a level being selected. To fix this bug
+a condition was added to activate the play button only when a level was selected and the "choose your difficulty level" text 
+was made to blink so as to prompt the user.
+
+6. After completing the game and pressing the restart button, two modals would superimpose on each other. This bug was fixed
+by hiding the 'gameEnd' module if the restart button is pressed.
+
+7. Once the main page was loaded it was advised by a tester to add a a picture since the page lacked content. Consequently a 
+galactic senate logo was added. The logo hides once the grid appears.
 
 
 
