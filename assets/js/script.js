@@ -6,25 +6,16 @@ $(document).ready(function(){
     let click = 0;
     let checkArray = []; 
     let characterArray = [];
-    let newArray = [];
-
-    // Initial display settings for main page
-    $(".grid").hide();
-    $("#reset2").hide();
-    $(".score").hide();
-    $("#sound").hide();
-
-    for(let i=0; i<=4; i++){
-        $("#start").fadeOut(500);
-        $("#start").fadeIn(200);
-    }
-
+    let newArray = [];    
+    
+    gameStart();
+    
     // Reset buttons
     $("#reset2").click(function(){
         $("#turns").html("<h1>" + "0" + "</h1>");  
         let i;
         for(i=1;i<=16;i++){
-            $("#"+i).removeClass($("#"+i).attr("class")).addClass("card");
+            $("#char_"+i).removeClass($("#char_"+i).attr("class")).addClass("card").removeAttr("style");
         }
         totalMatch = 0;
         totalTurns = 0;
@@ -44,7 +35,7 @@ $(document).ready(function(){
         $("#gameEnd").hide();
         let i;
         for(i=1;i<=16;i++){
-            $("#"+i).removeClass($("#"+i).attr("class")).addClass("card");
+            $("#char_"+i).removeClass($("#char_"+i).attr("class")).addClass("card").removeAttr("style");
         }
         totalMatch = 0;
         totalTurns = 0;
@@ -75,6 +66,20 @@ $(document).ready(function(){
             $("#myAudio4").attr("src","assets/sound/sure.mp3");
         }
     });
+
+    
+    // Initial display settings for main page
+    function gameStart(){
+        $(".grid").hide();
+        $("#reset2").hide();
+        $(".score").hide();
+        $("#sound").hide();
+
+        for(let i=0; i<=4; i++){
+            $("#start").fadeOut(500);
+            $("#start").fadeIn(200);
+        }
+    }
     
     // Scrolls screen down once level selected
     function smooth(){
@@ -126,8 +131,7 @@ $(document).ready(function(){
         }
             else if(level==="hard"){
                 characterArray = mainArray.splice(0,16);                               
-        } 
-        
+        }         
     }
 
     // Shuffles Array 
@@ -141,13 +145,20 @@ $(document).ready(function(){
     return newArray;
     }   
     
+    // Add character class to elements
+    function characterClass(){             
+        for (let i=1; i<newArray.length+1; i++){
+            $("#char_" + i).addClass(newArray[i-1]);                       
+        }
+    }
+
     // Checks for card match 
     function matchccheck(array){        
         if (array[0]===array[1]){
             totalTurns += 1;
             $("#turns").html("<h1>" + totalTurns + "</h1>");                       
             totalMatch += 1;
-            if(totalMatch===(newArray.length)/2){
+            if(totalMatch===(newArray.length)/2){                
                 $(".modal").css("background", "rgba(0,0,0,0.9)");
                 document.getElementById("myAudio3").play();
                 funFacts();                 
@@ -165,9 +176,9 @@ $(document).ready(function(){
             totalTurns += 1;
             $("#turns").html("<h1>" + totalTurns + "</h1>");                                
             document.getElementById("myAudio4").play();     
-            setTimeout(function(){                
-            $("."+ array[0]).addClass("card"); 
-            $("."+ array[1]).addClass("card");            
+            setTimeout(function(){                                   
+            $("."+ array[0]).addClass("card").removeAttr("style"); 
+            $("."+ array[1]).addClass("card").removeAttr("style");            
             checkArray = []; 
             click = 0;                                
             }, 2000);                        
@@ -175,18 +186,17 @@ $(document).ready(function(){
     }
                                                                            
     // Game logic
-    function game(){    
+    function game(){            
         let level = $("input[type=radio][name=level]:checked").val();             
-        gameArray(level);        
-        newArray = shuffleArray(characterArray);        
-        let i;
-        for (i=1; i<newArray.length+1; i++){
-            $("#" + i).addClass(newArray[i-1]);
-        }  
+        gameArray(level);                  
+        newArray = shuffleArray(characterArray);               
+        characterClass();        
         $(".card").click(function(){
             if(click<=1 && (($(this).attr("class")).length)>=6){
                 click += 1;            
-                $(this).removeClass("card");       
+                $(this).removeClass("card");                
+                let remainingClass = $(this).attr("class");
+                $(this).css("background-image", "url('assets/images/"+remainingClass+".png')");       
                 checkArray.push($(this).attr("class"));                
                 if (click===2){ 
                 matchccheck(checkArray);           
@@ -216,7 +226,7 @@ $(document).ready(function(){
     //Sends API data to HTML div
     function funFacts(){
         let randomnum = Math.floor(Math.random() * 80);
-        getData("https://swapi.dev/api/people/"+randomnum+"/", function(data){            
+        getData("https://swapi.py4e.com/api/people/"+randomnum+"/", function(data){            
             $("#data1").html("Name: " + data.name);
             $("#data2").html("Height: " + data.height);
             $("#data3").html("Mass: " + data.mass);

@@ -1,5 +1,6 @@
 $(document).ready(function(){    
     
+    
     $(".char").click(function(){
         $(this).removeClass("char");
         let image = $(this).attr("class");        
@@ -7,7 +8,7 @@ $(document).ready(function(){
         $(".myImage img").attr("alt", image);              
         $("#character-info").show();
         funFacts($(this).attr("id"));
-        smooth()
+        smooth();
     });
 
     function smooth(){
@@ -43,7 +44,7 @@ $(document).ready(function(){
     }    
     //Sends API data to HTML div
     function funFacts(num){        
-        getData("https://swapi.dev/api/people/"+num+"/", function(data){            
+        getData("https://swapi.py4e.com/api/people/"+num+"/", function(data){            
             $("#data1").html("Name: " + data.name);
             $("#data2").html("Height: " + data.height);
             $("#data3").html("Mass: " + data.mass);

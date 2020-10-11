@@ -52,22 +52,33 @@ h5{
 
 .play:hover, #start:hover, #reset2:hover, #sound:hover, #reset:hover{
     background: rgb(68, 66, 66);
+    text-decoration: none;
 }
 
 .reset{
     text-align: center;
 }
 
-.logo{
-    margin: 0 auto;
-    width: 300px;
-    background: rgba(0,0,0,0.6);
-    text-align: center;         
+.logo{    
+    text-align: center;                         
 }
 
 .fa-galactic-senate{
     color: red;
     font-size: 300px;    
+}
+
+.fa-home{
+    color: red;
+}
+
+.fa-home:hover{
+    color: rgb(68, 66, 66); 
+}
+
+.home{     
+    text-align: center;   
+    font-size: 40px;
 }
 
 body{
@@ -91,149 +102,15 @@ body{
     opacity: 0.8;
 }
 
-.yoda{
+.vader, .yoda, .luke, .boba, .r2, .cpo, .solo, .chewy, .obi, .leia, .ackbar, .lando{
     border: 2px solid grey;
     border-radius: 10px;
     background: white;
-    height: 125px;
-    background-image: url("../images/yoda.png");
+    height: 125px;    
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;    
     margin: 5px; 
-}  
-
-.vader{
-    border: 2px solid grey;
-    border-radius: 10px;
-    background: white;
-    height: 125px;
-    background-image: url("../images/vader.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;    
-    margin: 5px; 
-}
-
-
-.luke{
-    border: 2px solid grey;
-    border-radius: 10px;
-    background: white;
-    height: 125px;
-    background-image: url("../images/luke.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;    
-    margin: 5px; 
-}
-
-.r2{
-    border: 2px solid grey;
-    border-radius: 10px;
-    background: white;
-    height: 125px;
-    background-image: url("../images/r2.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;    
-    margin: 5px; 
-}
-
-.solo{
-    border: 2px solid grey;
-    border-radius: 10px;
-    background: white;
-    height: 125px;
-    background-image: url("../images/solo.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;    
-    margin: 5px;
-}
-
-.cpo{
-    border: 2px solid grey;
-    border-radius: 10px;
-    background: white;
-    height: 125px;
-    background-image: url("../images/cpo.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;    
-    margin: 5px;
-}
-
-.boba{
-    border: 2px solid grey;
-    border-radius: 10px;
-    background: white;
-    height: 125px;
-    background-image: url("../images/boba.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;    
-    margin: 5px;
-}
-
-.chewy{
-    border: 2px solid grey;
-    border-radius: 10px;
-    background: white;
-    height: 125px;
-    background-image: url("../images/chewy.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;    
-    margin: 5px;
-}
-
-.lando{
-    border: 2px solid grey;
-    border-radius: 10px;
-    background: white;
-    height: 125px;
-    background-image: url("../images/lando.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;    
-    margin: 5px;
-}
-
-.leia{
-    border: 2px solid grey;
-    border-radius: 10px;
-    background: white;
-    height: 125px;
-    background-image: url("../images/leia.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;    
-    margin: 5px;
-} 
-
-.obi{
-    border: 2px solid grey;
-    border-radius: 10px;
-    background: white;
-    height: 125px;
-    background-image: url("../images/obi.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;    
-    margin: 5px;
-}
-
-.ackbar{
-    border: 2px solid grey;
-    border-radius: 10px;
-    background: white;
-    height: 125px;
-    background-image: url("../images/ackbar.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;    
-    margin: 5px;
 } 
 
 .card{
@@ -321,8 +198,7 @@ input {
     height: 100px;
     background: rgb(105,102,102);
     margin: 5px; 
-    text-align: center;
-    line-height: 100px;    
+    text-align: center;     
 }
 
 /* Footer section */
@@ -352,13 +228,39 @@ input {
 } 
 
 @media screen and (max-width: 576px) {
-  .card, .vader, .yoda, .luke, .boba, .r2, .cpo, .solo, .chewy, .obi, .leia, .ackbar, .lando {
+   .card, .vader, .yoda, .luke, .boba, .r2, .cpo, .solo, .chewy, .obi, .leia, .ackbar, .lando {
       height: 75px;
-  }
-  h2{
+   }
+   h2{
       width: 300px;
       font-size: 22px;
-  }    
+   }
+   .logo img{
+      width: 200px;
+   }
+   .modal{
+      top: 225px;
+   }
+   #character-info{
+    height: 380px;
+    position: absolute;
+    top: 150px;
+    background-color:rgba(0, 0, 0, 0.9);
+    width: 300px; 
+   }
+   .fa-galactic-senate{   
+    font-size: 200px;    
+    }
+    .score{
+        height: 75px;             
+    }
+    #turns{
+        height: 75px;
+        line-height: 70px;
+    }
+    .score h1{
+        line-height: 70px;
+    }    
 } 
 
 
